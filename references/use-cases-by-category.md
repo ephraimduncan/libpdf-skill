@@ -1,6 +1,6 @@
 # Use Cases by Category
 
-Quick reference for common PDF tasks with @libpdf/core. Each entry shows when to use the feature and provides a code snippet. For complete working examples, see `/examples/` directory.
+Quick reference for common PDF tasks with @libpdf/core. Each entry shows when to use the feature and provides a code snippet. For complete working examples, see the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples).
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ Quick reference for common PDF tasks with @libpdf/core. Each entry shows when to
 
 ### Create empty PDF
 **When:** Starting a new document from scratch
-**Example:** `examples/01-basic/create-empty-pdf.ts`
+**Example:** [`examples/01-basic/create-empty-pdf.ts`](https://github.com/LibPDF-js/core/tree/main/examples/01-basic/create-empty-pdf.ts)
 
 ```typescript
 import { PDF } from "@libpdf/core";
@@ -35,7 +35,7 @@ const bytes = await pdf.save();
 
 ### Create PDF with specific page size
 **When:** Need custom dimensions or standard sizes
-**Example:** `examples/02-pages/add-custom-size-page.ts`
+**Example:** [`examples/02-pages/add-custom-size-page.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/add-custom-size-page.ts)
 
 ```typescript
 const page = pdf.addPage({ size: "a4" }); // Standard size
@@ -44,7 +44,7 @@ const page = pdf.addPage({ width: 600, height: 800 }); // Custom
 
 ### Generate invoice
 **When:** Programmatic document generation
-**Example:** `examples/04-drawing/draw-text.ts`
+**Example:** [`examples/04-drawing/draw-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/04-drawing/draw-text.ts)
 
 ```typescript
 import { rgb } from "@libpdf/core";
@@ -63,7 +63,7 @@ page.drawRectangle({ x: 50, y: 600, width: 500, height: 100, borderWidth: 1 });
 
 ### Load existing PDF
 **When:** Need to read, modify, or extract from PDF
-**Example:** `examples/01-basic/load-and-inspect.ts`
+**Example:** [`examples/01-basic/load-and-inspect.ts`](https://github.com/LibPDF-js/core/tree/main/examples/01-basic/load-and-inspect.ts)
 
 ```typescript
 const pdf = await PDF.load(bytes);
@@ -72,7 +72,7 @@ console.log(`${pdf.getPageCount()} pages`);
 
 ### Load encrypted PDF
 **When:** Working with password-protected documents
-**Example:** `examples/01-basic/load-encrypted.ts`
+**Example:** [`examples/01-basic/load-encrypted.ts`](https://github.com/LibPDF-js/core/tree/main/examples/01-basic/load-encrypted.ts)
 
 ```typescript
 const pdf = await PDF.load(bytes, { credentials: "password" });
@@ -82,7 +82,7 @@ const pdf = await PDF.load(bytes, { credentials: { user: "userpass" } });
 
 ### Handle malformed PDF
 **When:** PDF fails to open in other libraries
-**Example:** `examples/11-advanced/handle-malformed-pdf.ts`
+**Example:** [`examples/11-advanced/handle-malformed-pdf.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/handle-malformed-pdf.ts)
 
 ```typescript
 const pdf = await PDF.load(malformedBytes);
@@ -91,7 +91,7 @@ const pdf = await PDF.load(malformedBytes);
 
 ### Inspect document structure
 **When:** Debugging or understanding PDF internals
-**Example:** `examples/11-advanced/read-document-catalog.ts`
+**Example:** [`examples/11-advanced/read-document-catalog.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/read-document-catalog.ts)
 
 ```typescript
 const catalog = pdf.context.catalog;
@@ -105,7 +105,7 @@ console.log("Metadata:", catalog.get("Metadata"));
 
 ### Fill form fields (batch)
 **When:** Populating forms programmatically
-**Example:** `examples/03-forms/fill-form.ts`
+**Example:** [`examples/03-forms/fill-form.ts`](https://github.com/LibPDF-js/core/tree/main/examples/03-forms/fill-form.ts)
 
 ```typescript
 const form = pdf.getForm();
@@ -120,7 +120,7 @@ const filled = await pdf.save();
 
 ### Fill form fields (individual)
 **When:** Need fine-grained control per field
-**Example:** `examples/03-forms/fill-form.ts`
+**Example:** [`examples/03-forms/fill-form.ts`](https://github.com/LibPDF-js/core/tree/main/examples/03-forms/fill-form.ts)
 
 ```typescript
 const form = pdf.getForm();
@@ -133,7 +133,7 @@ checkbox.check();
 
 ### Flatten form
 **When:** Make form non-editable (print-ready)
-**Example:** `examples/03-forms/flatten-form.ts`
+**Example:** [`examples/03-forms/flatten-form.ts`](https://github.com/LibPDF-js/core/tree/main/examples/03-forms/flatten-form.ts)
 
 ```typescript
 const form = pdf.getForm();
@@ -143,7 +143,7 @@ const flattened = await pdf.save();
 
 ### Flatten specific fields
 **When:** Lock some fields, keep others editable
-**Example:** `examples/03-forms/flatten-form.ts`
+**Example:** [`examples/03-forms/flatten-form.ts`](https://github.com/LibPDF-js/core/tree/main/examples/03-forms/flatten-form.ts)
 
 ```typescript
 await form.flatten({ fields: ["name", "date"] });
@@ -151,7 +151,7 @@ await form.flatten({ fields: ["name", "date"] });
 
 ### Create form fields
 **When:** Building interactive forms
-**Example:** `examples/03-forms/create-form-fields.ts`
+**Example:** [`examples/03-forms/create-form-fields.ts`](https://github.com/LibPDF-js/core/tree/main/examples/03-forms/create-form-fields.ts)
 
 ```typescript
 form.createTextField("username", {
@@ -173,7 +173,7 @@ form.createCheckbox("subscribe", {
 
 ### Sign with P12 certificate
 **When:** Adding legally binding signatures
-**Example:** `examples/07-signatures/sign-with-p12.ts`
+**Example:** [`examples/07-signatures/sign-with-p12.ts`](https://github.com/LibPDF-js/core/tree/main/examples/07-signatures/sign-with-p12.ts)
 
 ```typescript
 import { P12Signer } from "@libpdf/core";
@@ -189,7 +189,7 @@ const signed = await pdf.sign({
 
 ### Sign with PAdES-LT/LTA (Long-Term Validation)
 **When:** Archival signatures, regulatory compliance
-**Example:** `examples/07-signatures/sign-with-long-term-validation.ts`
+**Example:** [`examples/07-signatures/sign-with-long-term-validation.ts`](https://github.com/LibPDF-js/core/tree/main/examples/07-signatures/sign-with-long-term-validation.ts)
 
 ```typescript
 import { HttpTimestampAuthority } from "@libpdf/core";
@@ -204,7 +204,7 @@ const signed = await pdf.sign({
 
 ### Sign with CryptoKey (browser)
 **When:** Signing in browser with Web Crypto API
-**Example:** `examples/07-signatures/sign-with-cryptokey.ts`
+**Example:** [`examples/07-signatures/sign-with-cryptokey.ts`](https://github.com/LibPDF-js/core/tree/main/examples/07-signatures/sign-with-cryptokey.ts)
 
 ```typescript
 import { CryptoKeySigner } from "@libpdf/core";
@@ -215,7 +215,7 @@ const signed = await pdf.sign({ signer });
 
 ### Multiple signatures
 **When:** Multi-party approval workflow
-**Example:** `examples/07-signatures/multiple-signatures.ts`
+**Example:** [`examples/07-signatures/multiple-signatures.ts`](https://github.com/LibPDF-js/core/tree/main/examples/07-signatures/multiple-signatures.ts)
 
 ```typescript
 const firstSign = await pdf.sign({ signer: signer1 });
@@ -229,7 +229,7 @@ const secondSign = await pdf2.sign({ signer: signer2 });
 
 ### Encrypt PDF with password
 **When:** Protecting sensitive documents
-**Example:** `examples/10-security/set-password.ts`
+**Example:** [`examples/10-security/set-password.ts`](https://github.com/LibPDF-js/core/tree/main/examples/10-security/set-password.ts)
 
 ```typescript
 const encrypted = await pdf.save({
@@ -242,7 +242,7 @@ const encrypted = await pdf.save({
 
 ### Set permissions
 **When:** Allow viewing but restrict editing/printing
-**Example:** `examples/10-security/set-permissions.ts`
+**Example:** [`examples/10-security/set-permissions.ts`](https://github.com/LibPDF-js/core/tree/main/examples/10-security/set-permissions.ts)
 
 ```typescript
 pdf.setProtection({
@@ -259,7 +259,7 @@ pdf.setProtection({
 
 ### Check encryption status
 **When:** Verify security settings
-**Example:** `examples/10-security/check-encryption.ts`
+**Example:** [`examples/10-security/check-encryption.ts`](https://github.com/LibPDF-js/core/tree/main/examples/10-security/check-encryption.ts)
 
 ```typescript
 const security = pdf.getSecurityInfo();
@@ -270,7 +270,7 @@ console.log(security.permissions); // { printing, modifying, ... }
 
 ### Remove password
 **When:** Decrypting for editing
-**Example:** `examples/10-security/remove-password.ts`
+**Example:** [`examples/10-security/remove-password.ts`](https://github.com/LibPDF-js/core/tree/main/examples/10-security/remove-password.ts)
 
 ```typescript
 const pdf = await PDF.load(encryptedBytes, { credentials: "password" });
@@ -284,7 +284,7 @@ const decrypted = await pdf.save();
 
 ### Merge PDFs
 **When:** Combining multiple documents
-**Example:** `examples/09-merging-and-splitting/merge-pdfs.ts`
+**Example:** [`examples/09-merging-and-splitting/merge-pdfs.ts`](https://github.com/LibPDF-js/core/tree/main/examples/09-merging-and-splitting/merge-pdfs.ts)
 
 ```typescript
 const merged = await PDF.merge([pdf1Bytes, pdf2Bytes, pdf3Bytes]);
@@ -292,7 +292,7 @@ const merged = await PDF.merge([pdf1Bytes, pdf2Bytes, pdf3Bytes]);
 
 ### Merge with metadata
 **When:** Setting properties on merged document
-**Example:** `examples/09-merging-and-splitting/merge-with-metadata.ts`
+**Example:** [`examples/09-merging-and-splitting/merge-with-metadata.ts`](https://github.com/LibPDF-js/core/tree/main/examples/09-merging-and-splitting/merge-with-metadata.ts)
 
 ```typescript
 const merged = await PDF.merge([pdf1Bytes, pdf2Bytes], {
@@ -304,7 +304,7 @@ const merged = await PDF.merge([pdf1Bytes, pdf2Bytes], {
 
 ### Extract pages
 **When:** Creating subset of document
-**Example:** `examples/09-merging-and-splitting/extract-pages.ts`
+**Example:** [`examples/09-merging-and-splitting/extract-pages.ts`](https://github.com/LibPDF-js/core/tree/main/examples/09-merging-and-splitting/extract-pages.ts)
 
 ```typescript
 const subset = await pdf.extractPages([0, 2, 5]); // Pages 1, 3, 6
@@ -312,7 +312,7 @@ const subset = await pdf.extractPages([0, 2, 5]); // Pages 1, 3, 6
 
 ### Copy pages between PDFs
 **When:** Building new PDF from multiple sources
-**Example:** `examples/02-pages/copy-pages.ts`
+**Example:** [`examples/02-pages/copy-pages.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/copy-pages.ts)
 
 ```typescript
 const targetPdf = PDF.create();
@@ -321,7 +321,7 @@ const [page1, page2] = await targetPdf.copyPagesFrom(sourcePdf, [0, 1]);
 
 ### Split into individual pages
 **When:** One PDF per page
-**Example:** `examples/09-merging-and-splitting/split-pages.ts`
+**Example:** [`examples/09-merging-and-splitting/split-pages.ts`](https://github.com/LibPDF-js/core/tree/main/examples/09-merging-and-splitting/split-pages.ts)
 
 ```typescript
 for (let i = 0; i < pdf.getPageCount(); i++) {
@@ -336,7 +336,7 @@ for (let i = 0; i < pdf.getPageCount(); i++) {
 
 ### Extract all text from page
 **When:** Indexing, analysis, content extraction
-**Example:** `examples/12-text-extraction/extract-text.ts`
+**Example:** [`examples/12-text-extraction/extract-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/12-text-extraction/extract-text.ts)
 
 ```typescript
 const page = pdf.getPage(0);
@@ -346,7 +346,7 @@ console.log(text);
 
 ### Search text with regex
 **When:** Finding specific patterns (invoice numbers, dates)
-**Example:** `examples/12-text-extraction/search-text.ts`
+**Example:** [`examples/12-text-extraction/search-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/12-text-extraction/search-text.ts)
 
 ```typescript
 const results = page.findText(/invoice #\d+/gi);
@@ -358,7 +358,7 @@ for (const result of results) {
 
 ### Highlight search results
 **When:** Visual markup of found text
-**Example:** `examples/12-text-extraction/highlight-template-tags.ts`
+**Example:** [`examples/12-text-extraction/highlight-template-tags.ts`](https://github.com/LibPDF-js/core/tree/main/examples/12-text-extraction/highlight-template-tags.ts)
 
 ```typescript
 const results = page.findText(/{{[^}]+}}/g);
@@ -373,7 +373,7 @@ for (const result of results) {
 
 ### Extract text from all pages
 **When:** Full document text extraction
-**Example:** `examples/12-text-extraction/extract-text.ts`
+**Example:** [`examples/12-text-extraction/extract-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/12-text-extraction/extract-text.ts)
 
 ```typescript
 const allText = pdf.getPages().map((page) => page.extractText()).join("\n\n");
@@ -385,7 +385,7 @@ const allText = pdf.getPages().map((page) => page.extractText()).join("\n\n");
 
 ### Draw text
 **When:** Adding content to pages
-**Example:** `examples/04-drawing/draw-text.ts`
+**Example:** [`examples/04-drawing/draw-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/04-drawing/draw-text.ts)
 
 ```typescript
 import { rgb } from "@libpdf/core";
@@ -400,7 +400,7 @@ page.drawText("Hello, World!", {
 
 ### Draw with custom font
 **When:** Brand consistency, special characters
-**Example:** `examples/05-images-and-fonts/embed-font.ts`
+**Example:** [`examples/05-images-and-fonts/embed-font.ts`](https://github.com/LibPDF-js/core/tree/main/examples/05-images-and-fonts/embed-font.ts)
 
 ```typescript
 const font = await pdf.embedFont(ttfBytes);
@@ -414,7 +414,7 @@ page.drawText("Custom font", {
 
 ### Draw shapes
 **When:** Visual elements, diagrams, highlights
-**Example:** `examples/04-drawing/draw-shapes.ts`
+**Example:** [`examples/04-drawing/draw-shapes.ts`](https://github.com/LibPDF-js/core/tree/main/examples/04-drawing/draw-shapes.ts)
 
 ```typescript
 // Rectangle
@@ -446,7 +446,7 @@ page.drawLine({
 
 ### Embed and draw images
 **When:** Logos, photos, diagrams
-**Example:** `examples/05-images-and-fonts/embed-image.ts`
+**Example:** [`examples/05-images-and-fonts/embed-image.ts`](https://github.com/LibPDF-js/core/tree/main/examples/05-images-and-fonts/embed-image.ts)
 
 ```typescript
 const image = await pdf.embedImage(jpegBytes, "jpeg");
@@ -460,7 +460,7 @@ page.drawImage(image, {
 
 ### Draw SVG path
 **When:** Complex vector graphics
-**Example:** `examples/04-drawing/draw-svg-path.ts`
+**Example:** [`examples/04-drawing/draw-svg-path.ts`](https://github.com/LibPDF-js/core/tree/main/examples/04-drawing/draw-svg-path.ts)
 
 ```typescript
 page.drawSvgPath("M 0 0 L 100 100 L 200 0 Z", {
@@ -472,7 +472,7 @@ page.drawSvgPath("M 0 0 L 100 100 L 200 0 Z", {
 
 ### Rotated text
 **When:** Diagonal labels, watermarks
-**Example:** `examples/04-drawing/draw-text.ts`
+**Example:** [`examples/04-drawing/draw-text.ts`](https://github.com/LibPDF-js/core/tree/main/examples/04-drawing/draw-text.ts)
 
 ```typescript
 page.drawText("Rotated", {
@@ -489,7 +489,7 @@ page.drawText("Rotated", {
 
 ### Get attachments
 **When:** Extracting embedded files (invoices, receipts)
-**Example:** `examples/08-attachments/extract-attachments.ts`
+**Example:** [`examples/08-attachments/extract-attachments.ts`](https://github.com/LibPDF-js/core/tree/main/examples/08-attachments/extract-attachments.ts)
 
 ```typescript
 const attachments = pdf.getAttachments();
@@ -502,7 +502,7 @@ for (const attachment of attachments) {
 
 ### Add attachment
 **When:** Embedding related files
-**Example:** `examples/08-attachments/add-attachment.ts`
+**Example:** [`examples/08-attachments/add-attachment.ts`](https://github.com/LibPDF-js/core/tree/main/examples/08-attachments/add-attachment.ts)
 
 ```typescript
 pdf.addAttachment(fileBytes, {
@@ -514,7 +514,7 @@ pdf.addAttachment(fileBytes, {
 
 ### Remove attachment
 **When:** Cleaning up embedded files
-**Example:** `examples/08-attachments/remove-attachment.ts`
+**Example:** [`examples/08-attachments/remove-attachment.ts`](https://github.com/LibPDF-js/core/tree/main/examples/08-attachments/remove-attachment.ts)
 
 ```typescript
 const attachments = pdf.getAttachments();
@@ -527,7 +527,7 @@ pdf.removeAttachment(attachments[0]);
 
 ### Add text annotation
 **When:** Comments, notes, review marks
-**Example:** `examples/11-advanced/add-annotations.ts`
+**Example:** [`examples/11-advanced/add-annotations.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/add-annotations.ts)
 
 ```typescript
 page.addAnnotation({
@@ -540,7 +540,7 @@ page.addAnnotation({
 
 ### Add link annotation
 **When:** Hyperlinks to URLs or internal pages
-**Example:** `examples/11-advanced/add-annotations.ts`
+**Example:** [`examples/11-advanced/add-annotations.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/add-annotations.ts)
 
 ```typescript
 page.addAnnotation({
@@ -552,7 +552,7 @@ page.addAnnotation({
 
 ### Highlight text
 **When:** Emphasizing content
-**Example:** `examples/12-text-extraction/highlight-template-tags.ts`
+**Example:** [`examples/12-text-extraction/highlight-template-tags.ts`](https://github.com/LibPDF-js/core/tree/main/examples/12-text-extraction/highlight-template-tags.ts)
 
 ```typescript
 page.addAnnotation({
@@ -564,7 +564,7 @@ page.addAnnotation({
 
 ### Flatten annotations
 **When:** Making annotations permanent
-**Example:** `examples/11-advanced/flatten-annotations.ts`
+**Example:** [`examples/11-advanced/flatten-annotations.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/flatten-annotations.ts)
 
 ```typescript
 await pdf.flattenAnnotations();
@@ -577,7 +577,7 @@ const flattened = await pdf.save();
 
 ### Add blank page
 **When:** Inserting pages
-**Example:** `examples/02-pages/add-page.ts`
+**Example:** [`examples/02-pages/add-page.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/add-page.ts)
 
 ```typescript
 const page = pdf.addPage({ size: "letter" });
@@ -585,7 +585,7 @@ const page = pdf.addPage({ size: "letter" });
 
 ### Remove page
 **When:** Deleting unwanted pages
-**Example:** `examples/02-pages/remove-page.ts`
+**Example:** [`examples/02-pages/remove-page.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/remove-page.ts)
 
 ```typescript
 pdf.removePage(2); // Remove page 3 (0-indexed)
@@ -593,7 +593,7 @@ pdf.removePage(2); // Remove page 3 (0-indexed)
 
 ### Rotate page
 **When:** Fixing orientation
-**Example:** `examples/02-pages/rotate-page.ts`
+**Example:** [`examples/02-pages/rotate-page.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/rotate-page.ts)
 
 ```typescript
 const page = pdf.getPage(0);
@@ -602,7 +602,7 @@ page.setRotation(90); // 0, 90, 180, 270
 
 ### Get page dimensions
 **When:** Positioning content
-**Example:** `examples/02-pages/get-dimensions.ts`
+**Example:** [`examples/02-pages/get-dimensions.ts`](https://github.com/LibPDF-js/core/tree/main/examples/02-pages/get-dimensions.ts)
 
 ```typescript
 const { width, height } = page.getSize();
@@ -611,7 +611,7 @@ const rotation = page.getRotation();
 
 ### Embed page as overlay
 **When:** Watermarks, letterhead
-**Example:** `examples/11-advanced/embed-page-as-xobject.ts`
+**Example:** [`examples/11-advanced/embed-page-as-xobject.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/embed-page-as-xobject.ts)
 
 ```typescript
 const embeddedPage = await pdf.embedPage(sourcePdf, 0);
@@ -630,7 +630,7 @@ page.drawField(embeddedPage, {
 
 ### Save with incremental update
 **When:** Preserving digital signatures
-**Example:** `examples/01-basic/save-incremental.ts`
+**Example:** [`examples/01-basic/save-incremental.ts`](https://github.com/LibPDF-js/core/tree/main/examples/01-basic/save-incremental.ts)
 
 ```typescript
 const modified = await pdf.save({ incremental: true });
@@ -643,7 +643,7 @@ const modified = await pdf.save({ incremental: true });
 
 ### Detect if incremental save needed
 **When:** Checking for signatures
-**Example:** `examples/11-advanced/detect-signatures.ts`
+**Example:** [`examples/11-advanced/detect-signatures.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/detect-signatures.ts)
 
 ```typescript
 const hasSignatures = pdf.context.catalog.has("Perms");
@@ -657,7 +657,7 @@ const bytes = await pdf.save(saveOptions);
 
 ### Low-level object access
 **When:** Direct PDF structure manipulation
-**Example:** `examples/11-advanced/low-level-object-access.ts`
+**Example:** [`examples/11-advanced/low-level-object-access.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/low-level-object-access.ts)
 
 ```typescript
 import { PdfDict, PdfName } from "@libpdf/core";
@@ -669,7 +669,7 @@ const count = pagesDict.get("Count");
 
 ### Flatten everything (forms + annotations + layers)
 **When:** Preparing for archival or signing
-**Example:** `examples/11-advanced/flatten-all.ts`
+**Example:** [`examples/11-advanced/flatten-all.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/flatten-all.ts)
 
 ```typescript
 await pdf.flattenAll();
@@ -678,7 +678,7 @@ const archival = await pdf.save();
 
 ### Inspect content streams
 **When:** Debugging drawing operations
-**Example:** `examples/11-advanced/content-stream-inspection.ts`
+**Example:** [`examples/11-advanced/content-stream-inspection.ts`](https://github.com/LibPDF-js/core/tree/main/examples/11-advanced/content-stream-inspection.ts)
 
 ```typescript
 const page = pdf.getPage(0);
@@ -688,4 +688,4 @@ console.log(contentStream.toString());
 
 ---
 
-For complete working implementations of these patterns, browse the `/examples/` directory organized by category.
+For complete working implementations of these patterns, browse the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples) organized by category.

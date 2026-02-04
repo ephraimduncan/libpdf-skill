@@ -1,6 +1,6 @@
 # API Quick Reference
 
-Common patterns for @libpdf/core (v0.2.5). For complete examples, see `/examples/` directory.
+Common patterns for @libpdf/core (v0.2.5). For complete examples, see the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples).
 
 ## Table of Contents
 
@@ -460,4 +460,4 @@ await pdf.flattenAll(); // Prepare for signing/archival
 
 ---
 
-For complete working examples, see `/examples/` directory organized by category.
+For complete working examples, see the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples) organized by category.

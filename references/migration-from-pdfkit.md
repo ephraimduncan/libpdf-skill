@@ -525,6 +525,6 @@ const libpdfY = pageHeight - pdfkitY; // 692
 
 ## Need Help?
 
-- Check `/examples/` for complete working examples
+- Check the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples) for complete working examples
 - See `api-quick-reference.md` for common patterns
 - File issues at https://github.com/LibPDF-js/core/issues

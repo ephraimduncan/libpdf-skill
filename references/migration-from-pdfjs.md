@@ -360,6 +360,6 @@ When you need modification (forms, signatures, merging), generation, or better m
 
 ## Need Help?
 
-- Check `/examples/` for complete @libpdf/core examples
+- Check the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples) for complete @libpdf/core examples
 - See `api-quick-reference.md` for common patterns
 - File issues at https://github.com/LibPDF-js/core/issues

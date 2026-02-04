@@ -55,7 +55,7 @@ Guides show side-by-side code comparisons for easy translation.
 - 12 categories matching common PDF tasks
 - Each entry: when to use + code snippet + example reference
 
-**Option B:** Check examples directory at `/examples/` with working implementations:
+**Option B:** Check the [examples directory](https://github.com/LibPDF-js/core/tree/main/examples) with working implementations:
 ```
 01-basic/              Creating, loading, saving
 02-pages/              Add, remove, copy, rotate pages
@@ -166,7 +166,7 @@ const results = pdf.getPage(0).findText(/invoice #\d+/gi);
 
 - **Documentation**: https://libpdf.dev
 - **GitHub**: https://github.com/LibPDF-js/core
-- **Examples**: `/examples/` in this repository (12 categories)
+- **Examples**: [examples/](https://github.com/LibPDF-js/core/tree/main/examples) (12 categories)
 - **Issues**: https://github.com/LibPDF-js/core/issues
 
 ## Known Limitations
